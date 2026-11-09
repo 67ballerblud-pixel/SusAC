@@ -1,0 +1,99 @@
+# SusAC config. Raise numbers to reduce false flags, lower them to be stricter.
+alerts:
+  enabled: true        # false = nobody gets chat alerts (flags are still saved)
+  console-log: true    # false = stop flags printing in the console
+alert-cooldown-seconds: 3
+teleport-grace-ms: 2000
+
+checks:
+  speed:
+    enabled: true
+    max-per-tick: 0.65   # blocks per tick (sprint-jump is ~0.36)
+    buffer: 6
+  fly:
+    enabled: true
+    hover-ticks: 10      # ticks hovering in mid-air
+  omnisprint:
+    enabled: true
+    ticks: 10
+  reach:
+    enabled: true
+    max: 3.9             # vanilla is 3.0, extra is for lag
+    buffer: 3
+  autoclicker:
+    enabled: true
+    max-cps: 22
+  wallhit:
+    enabled: true
+    buffer: 5
+  multiaura:
+    enabled: true
+  nuker:
+    enabled: true
+    max-per-second: 12
+  breakreach:
+    enabled: true
+    max: 6.5
+  fastplace:
+    enabled: true
+    max-per-second: 16
+  fasteat:
+    enabled: true
+    min-interval-ms: 600
+
+  # ---- new checks ----
+  xray:
+    enabled: true
+    window: 150          # mined filler/ore blocks looked at (below Y20 or Nether)
+    rare-ores: 8         # diamond/ancient debris in that window = flag
+  macroclick:
+    enabled: true
+    max-deviation-ms: 8  # click timing that is TOO consistent
+  autowalk:
+    enabled: true
+    seconds: 90          # walking this long with a frozen camera
+  walltrack:
+    enabled: true
+    range: 40
+    samples: 12          # 12 samples = ~3 seconds of tracking
+  altlimit:
+    enabled: true
+    max-accounts: 2      # on the same IP (turn off if behind a proxy)
+  chatflood:
+    enabled: true
+    max-messages: 5
+    window-ms: 5000
+  chatspam:
+    enabled: true
+    repeats: 3
+  chatcaps:
+    enabled: true
+    min-letters: 10
+    ratio: 0.7
+  advertising:
+    enabled: true
+  doxing:
+    enabled: true
+  deaththreat:
+    enabled: true
+  hatespeech:
+    enabled: true
+  profanity:
+    enabled: true
+
+chat:
+  # Domains/IPs that are allowed in chat (your own server address, etc.)
+  advertising-whitelist: []
+  # Phrases are matched as whole words after leet-speak cleanup (1->i, 3->e, 0->o...)
+  threat-phrases:
+    - "kill yourself"
+    - "kys"
+    - "i will find you"
+    - "i will kill you"
+    - "hope you die"
+  # Add your own words here, one per line
+  hate-words: []
+  profanity-words:
+    - "fuck"
+    - "shit"
+    - "bitch"

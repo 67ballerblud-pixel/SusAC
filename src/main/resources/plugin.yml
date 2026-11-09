@@ -1,0 +1,17 @@
+name: SusAC
+version: 1.0
+main: me.fix.susac.SusAC
+api-version: "1.21"
+commands:
+  sus:
+    description: Open the suspicious players flag menu
+    usage: /sus [player|clear|tp|alerts|reload]
+permissions:
+  sus.use:
+    default: op
+  sus.admin:
+    default: op
+  sus.alerts:
+    default: op
+  sus.bypass:
+    default: false
